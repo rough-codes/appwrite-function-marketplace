@@ -1,0 +1,89 @@
+{
+  "id": "auth-email-verification",
+  "title": "Custom Email Verification",
+  "description": "Send branded email verification messages with custom templates and SMTP integration. Perfect for user onboarding flows.",
+  "category": "Authentication",
+  "tags": ["email", "verification", "auth", "onboarding", "smtp"],
+  "runtime": "node-18.0",
+  "version": "1.0.0",
+  "author": "Appwrite Community",
+  "dependencies": {
+    "node-appwrite": "^13.0.0",
+    "nodemailer": "^6.9.0"
+  },
+  "environment_variables": {
+    "APPWRITE_API_KEY": {
+      "description": "Your Appwrite API key with Users read permission",
+      "required": true,
+      "type": "secret"
+    },
+    "SMTP_HOST": {
+      "description": "SMTP server hostname (e.g., smtp.gmail.com)",
+      "required": true,
+      "type": "string"
+    },
+    "SMTP_PORT": {
+      "description": "SMTP server port (587 for TLS, 465 for SSL)",
+      "required": true,
+      "type": "string",
+      "default": "587"
+    },
+    "SMTP_USER": {
+      "description": "SMTP username/email",
+      "required": true,
+      "type": "string"
+    },
+    "SMTP_PASS": {
+      "description": "SMTP password or app-specific password",
+      "required": true,
+      "type": "secret"
+    },
+    "FROM_EMAIL": {
+      "description": "Sender email address",
+      "required": true,
+      "type": "string"
+    },
+    "BRAND_NAME": {
+      "description": "Your application/brand name for email templates",
+      "required": false,
+      "type": "string",
+      "default": "Your App"
+    }
+  },
+  "events": [],
+  "timeout": 15,
+  "usage_examples": [
+    {
+      "title": "Basic Usage",
+      "description": "Send verification email to a new user",
+      "request": {
+        "method": "POST",
+        "body": {
+          "userId": "user123",
+          "email": "user@example.com",
+          "verificationUrl": "https://yourapp.com/verify?token=abc123"
+        }
+      }
+    }
+  ],
+  "setup_instructions": [
+    "1. Configure your SMTP settings in environment variables",
+    "2. Set up your Appwrite API key with Users read permission",
+    "3. Customize the email template in the function code",
+    "4. Test with a sample user registration flow"
+  ],
+  "features": [
+    "Branded HTML email templates",
+    "SMTP integration with popular providers",
+    "User name personalization",
+    "Responsive email design",
+    "Security best practices",
+    "Error handling and logging"
+  ],
+  "use_cases": [
+    "User registration verification",
+    "Email change confirmation",
+    "Account activation",
+    "Welcome email sequences"
+  ]
+}
